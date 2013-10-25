@@ -1,0 +1,20 @@
+{
+    "name": "formativ/chat",
+    "description": "",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "Formativ\\Chat": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
