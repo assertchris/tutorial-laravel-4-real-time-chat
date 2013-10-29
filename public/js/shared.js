@@ -83,7 +83,7 @@ App.IndexController = Ember.ArrayController.extend({
 
 });
 
-App.IndexView = Em.View.extend({
+App.IndexView = Ember.View.extend({
 
     "keyDown" : function(e) {
         this.get("controller").send("send", e.keyCode);
