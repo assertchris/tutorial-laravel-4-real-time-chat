@@ -11,6 +11,8 @@ implements UserInterface
 
     protected $name;
 
+    protected $id;
+
     public function getSocket()
     {
         return $this->socket;
@@ -19,6 +21,17 @@ implements UserInterface
     public function setSocket(ConnectionInterface $socket)
     {
         $this->socket = $socket;
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
         return $this;
     }
 

@@ -10,7 +10,7 @@ class ChatServiceProvider
 extends ServiceProvider
 {
 
-	protected $defer = true;
+    protected $defer = true;
 
     public function register()
     {
@@ -50,5 +50,4 @@ extends ServiceProvider
             "chat.server"
         ];
     }
-
 }

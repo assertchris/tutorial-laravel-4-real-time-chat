@@ -14,6 +14,8 @@ implements ChatInterface
 
     protected $emitter;
 
+    protected $id = 1;
+
     public function getUserBySocket(ConnectionInterface $socket)
     {
         foreach ($this->users as $next)
@@ -51,6 +53,7 @@ implements ChatInterface
     public function onOpen(ConnectionInterface $socket)
     {
         $user = new User();
+        $user->setId($this->id++);
         $user->setSocket($socket);
 
         $this->users->attach($user);
@@ -80,15 +83,16 @@ implements ChatInterface
 
         foreach ($this->users as $next)
         {
-            if ($next !== $user)
-            {
+            // if ($next !== $user)
+            // {
                 $next->getSocket()->send(json_encode([
                     "user" => [
+                        "id"   => $user->getId(),
                         "name" => $user->getName()
                     ],
                     "message" => $message
                 ]));
-            }
+            // }
         }
     }
 
