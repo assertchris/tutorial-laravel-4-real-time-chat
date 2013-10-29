@@ -38,9 +38,11 @@ App.Message.FIXTURES = [
 var store;
 
 App.IndexRoute = Ember.Route.extend({
-    "model" : function () {
+    "init" : function() {
         store = this.store;
-        return store.findAll("message");
+    },
+    "model" : function () {
+        return store.find("message");
     }
 });
 
@@ -49,6 +51,7 @@ App.IndexController = Ember.ArrayController.extend({
     "command" : null,
 
     "actions" : {
+
         "send" : function(key) {
 
             if (key && key != 13) {
@@ -75,6 +78,7 @@ App.IndexController = Ember.ArrayController.extend({
 
             this.set("command", null);
         }
+
     }
 
 });
@@ -88,6 +92,8 @@ App.IndexView = Em.View.extend({
 });
 
 try {
+
+    var id = 1;
 
     if (!WebSocket) {
 
@@ -109,7 +115,6 @@ try {
         socket.addEventListener("message", function (e) {
 
             var data = JSON.parse(e.data);
-            var id   = 1;
 
             switch (data.message.type) {
 
