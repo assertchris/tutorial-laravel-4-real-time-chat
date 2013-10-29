@@ -95,7 +95,7 @@ try {
 
     } else {
 
-        var socket = new WebSocket("ws://127.0.0.1:1337/");
+        var socket = new WebSocket("ws://127.0.0.1:7778/");
         var id     = 1;
 
         socket.addEventListener("open", function (e) {

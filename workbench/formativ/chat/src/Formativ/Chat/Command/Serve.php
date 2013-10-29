@@ -74,7 +74,7 @@ extends Command
 
         if (!$port)
         {
-            $port = 1337;
+            $port = 7778;
         }
 
         $server = IoServer::factory(
