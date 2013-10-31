@@ -39,6 +39,12 @@ extends Command
 
         $this->chat = $chat;
 
+        $open = function(UserInterface $user)
+        {
+            $name = $this->getUserName($user);
+            $this->line("<info>" . $name . " connected.</info>");
+        };
+
         $this->chat->getEmitter()->on("open", function(UserInterface $user)
         {
             $name = $this->getUserName($user);

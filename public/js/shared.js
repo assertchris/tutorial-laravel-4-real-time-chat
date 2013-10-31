@@ -15,7 +15,9 @@ App.Message = DS.Model.extend({
     "message"       : DS.attr("string")
 });
 
-App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Store = DS.Store.extend({
+    "adapter" : DS.FixtureAdapter.extend()
+});
 
 App.Message.FIXTURES = [
     // {
